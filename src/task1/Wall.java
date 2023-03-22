@@ -3,15 +3,13 @@ package task1;
 public class Wall extends Obstacle {
     private double height;
 
-    public Wall(double height) {
+    public Wall(double height, String name) {
+        super(name);
         this.height = height;
     }
 
-    public double getHeight() {
-        return height;
-    }
-
-    public String getName() {
-        return "Wall";
+    @Override
+    public boolean overcome(Participant participant) {
+        return participant.jump(height, getName());
     }
 }
